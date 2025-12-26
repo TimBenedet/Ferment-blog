@@ -86,3 +86,51 @@ a {
 .animate-glow {
   animation: glow 3s ease-in-out infinite;
 }
+
+/* Prose styling for markdown content */
+.prose {
+  --tw-prose-body: var(--color-ferment-gray);
+  --tw-prose-headings: var(--color-ferment-cream);
+  --tw-prose-links: #0FEFD1;
+  --tw-prose-bold: var(--color-ferment-cream);
+  --tw-prose-bullets: #0FEFD1;
+  --tw-prose-counters: #0FEFD1;
+  --tw-prose-quotes: var(--color-ferment-cream);
+  --tw-prose-quote-borders: #0FEFD1;
+  --tw-prose-code: var(--color-ferment-cream);
+  --tw-prose-hr: rgba(255, 255, 255, 0.1);
+}
+
+.prose h2 {
+  color: #0FEFD1 !important;
+}
+
+.prose h3 {
+  color: var(--color-ferment-cream) !important;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  color: var(--color-ferment-gray);
+}
+
+.prose li::marker {
+  color: #0FEFD1;
+}
+
+.prose strong {
+  color: var(--color-ferment-cream);
+}
+
+.prose a {
+  color: #0FEFD1;
+}
+
+.prose blockquote {
+  border-left-color: #0FEFD1;
+  color: var(--color-ferment-cream);
+}
