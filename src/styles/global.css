@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* Custom CSS Variables - Silo-inspired theme */
 @theme {
