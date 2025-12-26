@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="À propos" description="Qui se cache derrière ce blog sur la fermentation et le zéro déchet.">
+  <!-- Hero -->
+  <section class="py-24 lg:py-32 bg-[--color-ferment-darker]">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-wider text-[--color-ferment-cream] mb-6">
+        À PROPOS
+      </h1>
+      <p class="text-xl text-[--color-ferment-gray]">
+        L'histoire derrière FERMENT.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Portrait placeholder -->
+      <div class="w-32 h-32 mx-auto mb-12 rounded-full bg-gradient-to-br from-[--color-ferment-accent] to-[--color-ferment-purple] opacity-50"></div>
+
+      <div class="prose prose-lg prose-invert max-w-none text-center">
+        <p class="text-xl text-[--color-ferment-gray] leading-relaxed mb-8">
+          Passionné par la fermentation depuis plusieurs années, j'ai découvert dans cet art ancestral
+          une réponse à mes questionnements sur notre système alimentaire moderne.
+        </p>
+      </div>
+
+      <div class="mt-12 space-y-8 text-[--color-ferment-gray]">
+        <p class="leading-relaxed">
+          Tout a commencé par une simple question : que faire de ces épluchures, de ces restes,
+          de ce pain rassis ? La réponse était là, dans des pratiques millénaires que nous avions oubliées.
+        </p>
+
+        <p class="leading-relaxed">
+          Le <strong class="text-[--color-ferment-cream]">koji</strong> est entré dans ma vie lors d'un voyage au Japon.
+          Voir ces artisans travailler avec ce champignon comme un partenaire, avec respect et patience,
+          m'a profondément marqué. De retour chez moi, j'ai commencé à expérimenter.
+        </p>
+
+        <p class="leading-relaxed">
+          Puis est venue la <strong class="text-[--color-ferment-cream]">bière</strong>. Et avec elle, la question des drêches —
+          ces kilos de céréales usagées après chaque brassin. Trop précieux pour finir à la poubelle.
+          Pain, crackers, granola... les possibilités sont infinies.
+        </p>
+
+        <p class="leading-relaxed">
+          Le <strong class="text-[--color-ferment-cream]">miso</strong> est venu naturellement ensuite.
+          Cette pâte qui demande des mois, parfois des années de patience.
+          Une leçon d'humilité dans notre monde de l'instantané.
+        </p>
+
+        <div class="my-12 p-8 bg-[--color-ferment-darker] border border-white/5">
+          <h3 class="text-xl font-display font-bold text-[--color-ferment-cream] mb-4">
+            Ce que vous trouverez ici
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-[--color-ferment-accent]">→</span>
+              <span>Des guides détaillés pour débuter la fermentation</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[--color-ferment-accent]">→</span>
+              <span>Des réflexions sur le zéro déchet et l'autonomie alimentaire</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[--color-ferment-accent]">→</span>
+              <span>Des recettes testées et approuvées</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[--color-ferment-accent]">→</span>
+              <span>Des échecs documentés — parce qu'on apprend aussi de nos erreurs</span>
+            </li>
+          </ul>
+        </div>
+
+        <p class="leading-relaxed">
+          Ce blog n'est pas un cours magistral. C'est un journal de bord,
+          une invitation à expérimenter, à échouer, à recommencer.
+          Car la fermentation, c'est avant tout ça : accepter que le temps et les micro-organismes
+          font le travail, et que notre rôle est simplement de créer les bonnes conditions.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="mt-16 pt-12 border-t border-white/10 text-center">
+        <h3 class="text-xl font-display font-bold text-[--color-ferment-cream] mb-4">
+          Envie d'échanger ?
+        </h3>
+        <p class="text-[--color-ferment-gray] mb-6">
+          Questions, suggestions, partage d'expériences — n'hésitez pas à me contacter.
+        </p>
+        <a
+          href="mailto:contact@ferment.blog"
+          class="inline-block px-8 py-4 bg-[--color-ferment-accent] text-[--color-ferment-dark] font-display text-sm uppercase tracking-widest hover:bg-[--color-ferment-cream] transition-colors"
+        >
+          Me contacter
+        </a>
+      </div>
+
+    </div>
+  </section>
+</Layout>

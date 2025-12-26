@@ -1,0 +1,85 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[--color-ferment-darker] border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <!-- Brand -->
+      <div>
+        <a href="/" class="inline-block">
+          <span class="text-2xl font-display font-bold tracking-wider text-[--color-ferment-cream]">
+            FERMENT<span class="text-[--color-ferment-accent]">.</span>
+          </span>
+        </a>
+        <p class="mt-4 text-[--color-ferment-gray] text-sm leading-relaxed">
+          Explorer la fermentation comme philosophie de vie.
+          Du koji au miso, de la bière au zéro déchet.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h4 class="text-sm font-display uppercase tracking-widest text-[--color-ferment-cream] mb-4">
+          Explorer
+        </h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="/journal" class="text-[--color-ferment-gray] hover:text-[--color-ferment-accent] text-sm transition-colors">
+              Journal
+            </a>
+          </li>
+          <li>
+            <a href="/recettes" class="text-[--color-ferment-gray] hover:text-[--color-ferment-accent] text-sm transition-colors">
+              Recettes
+            </a>
+          </li>
+          <li>
+            <a href="/manifeste" class="text-[--color-ferment-gray] hover:text-[--color-ferment-accent] text-sm transition-colors">
+              Manifeste
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div>
+        <h4 class="text-sm font-display uppercase tracking-widest text-[--color-ferment-cream] mb-4">
+          Catégories
+        </h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="/journal?cat=koji" class="text-[--color-ferment-gray] hover:text-[--color-ferment-accent] text-sm transition-colors">
+              Koji
+            </a>
+          </li>
+          <li>
+            <a href="/journal?cat=miso" class="text-[--color-ferment-gray] hover:text-[--color-ferment-accent] text-sm transition-colors">
+              Miso
+            </a>
+          </li>
+          <li>
+            <a href="/journal?cat=biere" class="text-[--color-ferment-gray] hover:text-[--color-ferment-accent] text-sm transition-colors">
+              Bière
+            </a>
+          </li>
+          <li>
+            <a href="/journal?cat=zero-dechet" class="text-[--color-ferment-gray] hover:text-[--color-ferment-accent] text-sm transition-colors">
+              Zéro Déchet
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-[--color-ferment-gray] text-xs">
+        &copy; {currentYear} FERMENT. Tous droits réservés.
+      </p>
+      <p class="text-[--color-ferment-gray] text-xs">
+        Fait avec <span class="text-[--color-ferment-accent]">fermentation</span> et patience.
+      </p>
+    </div>
+  </div>
+</footer>

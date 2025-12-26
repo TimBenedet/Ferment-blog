@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koji pour le Miso, Amazake et Shio-Koji | FERMENT.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-ferment-dark: #1F201F;
+      --color-ferment-darker: #161819;
+      --color-ferment-accent: #0FEFD1;
+      --color-ferment-purple: #C4ABFF;
+      --color-ferment-cream: #F5F5F0;
+      --color-ferment-gray: #8A8A8A;
+      --color-amber: #D4A574;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      background-color: var(--color-ferment-dark);
+      color: var(--color-ferment-cream);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    a {
+      color: var(--color-ferment-accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--color-ferment-cream);
+    }
+
+    header {
+      background-color: rgba(31, 32, 31, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 1.5rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--color-ferment-cream);
+    }
+
+    .logo span {
+      color: var(--color-ferment-accent);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(245, 245, 240, 0.7);
+    }
+
+    nav a:hover {
+      color: var(--color-ferment-accent);
+    }
+
+    .hero {
+      padding: 8rem 2rem 4rem;
+      background-color: var(--color-ferment-darker);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .category {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--color-amber);
+      color: var(--color-ferment-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .meta {
+      color: var(--color-ferment-gray);
+      font-size: 0.875rem;
+    }
+
+    article {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    article p {
+      color: var(--color-ferment-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    article h2 {
+      color: var(--color-ferment-cream);
+      font-size: 1.5rem;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    article h3 {
+      color: var(--color-ferment-accent);
+      font-size: 1.125rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro {
+      font-size: 1.25rem;
+      color: var(--color-ferment-cream);
+      border-left: 4px solid var(--color-amber);
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--color-ferment-darker);
+    }
+
+    th {
+      background-color: var(--color-amber);
+      color: var(--color-ferment-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 1rem;
+      text-align: left;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--color-ferment-gray);
+    }
+
+    tr:hover td {
+      background-color: rgba(212, 165, 116, 0.05);
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .criteria-card {
+      background-color: var(--color-ferment-darker);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 1.5rem;
+    }
+
+    .criteria-card h4 {
+      color: var(--color-ferment-cream);
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .criteria-card p {
+      font-size: 0.875rem;
+      margin-bottom: 0;
+    }
+
+    .criteria-number {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      background-color: var(--color-amber);
+      color: var(--color-ferment-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      line-height: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    /* Product types */
+    .product-types {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .product-card {
+      background-color: var(--color-ferment-darker);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .product-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-card h4 {
+      color: var(--color-ferment-cream);
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card p {
+      font-size: 0.75rem;
+      margin-bottom: 0;
+    }
+
+    footer {
+      background-color: var(--color-ferment-darker);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .copyright {
+      color: var(--color-ferment-gray);
+      font-size: 0.75rem;
+    }
+
+    .source {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.875rem;
+      color: var(--color-ferment-gray);
+    }
+
+    .tip-box {
+      background-color: rgba(212, 165, 116, 0.1);
+      border: 1px solid rgba(212, 165, 116, 0.3);
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .tip-box h4 {
+      color: var(--color-amber);
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tip-box p {
+      margin-bottom: 0;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .criteria-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-types {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">FERMENT<span>.</span></a>
+      <nav>
+        <a href="/">Accueil</a>
+        <a href="koji-sake.html">Saké</a>
+        <a href="koji-shochu.html">Shochu</a>
+        <a href="koji-miso.html">Miso</a>
+        <a href="koji-sauce-soja.html">Sauce Soja</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="category">Miso</span>
+      <h1>Choisir son Koji pour le Miso, Amazake et Shio-Koji</h1>
+      <p class="meta">Guide de sélection pour les fermentations du quotidien</p>
+    </div>
+  </section>
+
+  <article>
+    <p class="intro">
+      Le miso, l'amazake et le shio-koji partagent un point commun : ils dépendent d'un koji
+      de qualité pour développer leur richesse en umami et leur douceur naturelle.
+      Six critères guident le choix du starter idéal.
+    </p>
+
+    <h2>Trois produits, une base commune</h2>
+
+    <div class="product-types">
+      <div class="product-card">
+        <div class="icon">味</div>
+        <h4>Miso</h4>
+        <p>Pâte fermentée de soja. Fermentation de 3 mois à plusieurs années.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="icon">甘</div>
+        <h4>Amazake</h4>
+        <p>Boisson sucrée naturellement. Fermentation de 8-12 heures seulement.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="icon">塩</div>
+        <h4>Shio-Koji</h4>
+        <p>Condiment salé enzymatique. Fermentation de 7-14 jours.</p>
+      </div>
+    </div>
+
+    <h2>Les 6 critères de sélection</h2>
+
+    <div class="criteria-grid">
+      <div class="criteria-card">
+        <span class="criteria-number">1</span>
+        <h4>Matière Première</h4>
+        <p>
+          Les starters de koji sont disponibles pour le riz, l'orge et le soja.
+          Chaque céréale donne un profil différent au produit final.
+        </p>
+      </div>
+
+      <div class="criteria-card">
+        <span class="criteria-number">2</span>
+        <h4>Activité Enzymatique</h4>
+        <p>
+          Privilégier des starters avec une excellente activité de saccharification
+          et de protéolyse pour un umami prononcé.
+        </p>
+      </div>
+
+      <div class="criteria-card">
+        <span class="criteria-number">3</span>
+        <h4>Couleur des Spores</h4>
+        <p>
+          Le starter Albino est recommandé pour le miso blanc, l'amazake et le shio-koji
+          pour éviter la sporulation visible et garder une couleur claire.
+        </p>
+      </div>
+
+      <div class="criteria-card">
+        <span class="criteria-number">4</span>
+        <h4>Longueur du Mycélium</h4>
+        <p>
+          Influence l'apparence du koji et sa cohésion. Un mycélium long fait
+          que les grains s'agglomèrent — parfois souhaitable, parfois non.
+        </p>
+      </div>
+
+      <div class="criteria-card">
+        <span class="criteria-number">5</span>
+        <h4>Vitesse de Croissance</h4>
+        <p>
+          Affecte la facilité du processus de fabrication. Une croissance
+          rapide est plus facile à gérer pour les débutants.
+        </p>
+      </div>
+
+      <div class="criteria-card">
+        <span class="criteria-number">6</span>
+        <h4>Coloration</h4>
+        <p>
+          Les starters à forte activité enzymatique peuvent ternir la couleur
+          de l'amazake. Important pour les produits où l'apparence compte.
+        </p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <h4>Conseil pratique</h4>
+      <p>
+        Pour débuter, choisissez un starter albino à croissance rapide. Il pardonne
+        les erreurs de température et produit un koji propre et clair, idéal pour
+        l'amazake et le shio-koji maison.
+      </p>
+    </div>
+
+    <h2>Enzymes du Koji pour le Miso</h2>
+
+    <p>
+      Les enzymes du koji transforment les protéines du soja en acides aminés savoureux
+      et les amidons en sucres qui nourrissent la fermentation.
+    </p>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Enzyme</th>
+            <th>Fonction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>α-amylase</strong></td>
+            <td>Liquéfaction de l'amidon — rend le substrat accessible</td>
+          </tr>
+          <tr>
+            <td><strong>Gluco-amylase</strong></td>
+            <td>Production de glucose — source de douceur naturelle</td>
+          </tr>
+          <tr>
+            <td><strong>α-glucosidase</strong></td>
+            <td>Dégradation des oligosaccharides ramifiés</td>
+          </tr>
+          <tr>
+            <td><strong>Protéase</strong></td>
+            <td>Protéolyse — production de peptides et acides aminés (umami)</td>
+          </tr>
+          <tr>
+            <td><strong>Lipase</strong></td>
+            <td>Décomposition des graisses et huiles du soja — développe les arômes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Application pratique</h2>
+
+    <h3>Pour le Miso blanc (Shiro Miso)</h3>
+    <p>
+      Utilisez un starter albino et une fermentation courte (1-3 mois) avec beaucoup
+      de koji par rapport au soja. Le résultat sera doux et sucré.
+    </p>
+
+    <h3>Pour le Miso rouge (Aka Miso)</h3>
+    <p>
+      Un starter classique avec une longue fermentation (1-3 ans) développera des
+      saveurs profondes et complexes. La couleur brune est normale et souhaitée.
+    </p>
+
+    <h3>Pour l'Amazake</h3>
+    <p>
+      Privilégiez un starter à haute activité de saccharification pour maximiser
+      la douceur. Maintenez 55-60°C pendant 8-12 heures pour activer les enzymes.
+    </p>
+
+    <h3>Pour le Shio-Koji</h3>
+    <p>
+      Mélangez 100g de koji, 35g de sel et 100ml d'eau. Laissez fermenter 7-14 jours
+      à température ambiante en remuant quotidiennement. Le résultat est un condiment
+      miraculeux qui attendrit les viandes et sublime les légumes.
+    </p>
+
+    <div class="source">
+      <p>
+        <strong>Source :</strong>
+        <a href="https://www.higuchi-m.co.jp/en/choice/#miso" target="_blank">
+          Higuchi Matsunosuke Shoten — How to Select the Koji Starter for Miso
+        </a>
+      </p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-nav">
+      <a href="koji-sake.html">Saké</a>
+      <a href="koji-shochu.html">Shochu</a>
+      <a href="koji-miso.html">Miso</a>
+      <a href="koji-sauce-soja.html">Sauce Soja</a>
+    </div>
+    <p class="copyright">
+      &copy; 2024 FERMENT. — Rien ne se perd, tout se fermente.
+    </p>
+  </footer>
+</body>
+</html>

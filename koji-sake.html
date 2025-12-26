@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koji pour le Saké | FERMENT.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-ferment-dark: #1F201F;
+      --color-ferment-darker: #161819;
+      --color-ferment-accent: #0FEFD1;
+      --color-ferment-purple: #C4ABFF;
+      --color-ferment-cream: #F5F5F0;
+      --color-ferment-gray: #8A8A8A;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      background-color: var(--color-ferment-dark);
+      color: var(--color-ferment-cream);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    a {
+      color: var(--color-ferment-accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--color-ferment-cream);
+    }
+
+    /* Header */
+    header {
+      background-color: rgba(31, 32, 31, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 1.5rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--color-ferment-cream);
+    }
+
+    .logo span {
+      color: var(--color-ferment-accent);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(245, 245, 240, 0.7);
+    }
+
+    nav a:hover {
+      color: var(--color-ferment-accent);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 8rem 2rem 4rem;
+      background-color: var(--color-ferment-darker);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .category {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--color-ferment-accent);
+      color: var(--color-ferment-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .meta {
+      color: var(--color-ferment-gray);
+      font-size: 0.875rem;
+    }
+
+    /* Article */
+    article {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    article p {
+      color: var(--color-ferment-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    article h2 {
+      color: var(--color-ferment-cream);
+      font-size: 1.5rem;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    article h3 {
+      color: var(--color-ferment-accent);
+      font-size: 1.125rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro {
+      font-size: 1.25rem;
+      color: var(--color-ferment-cream);
+      border-left: 4px solid var(--color-ferment-accent);
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--color-ferment-darker);
+    }
+
+    th {
+      background-color: var(--color-ferment-accent);
+      color: var(--color-ferment-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 1rem;
+      text-align: left;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--color-ferment-gray);
+    }
+
+    tr:hover td {
+      background-color: rgba(15, 239, 209, 0.05);
+    }
+
+    /* Cards */
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .criteria-card {
+      background-color: var(--color-ferment-darker);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 1.5rem;
+    }
+
+    .criteria-card h4 {
+      color: var(--color-ferment-cream);
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .criteria-card p {
+      font-size: 0.875rem;
+      margin-bottom: 0;
+    }
+
+    .criteria-number {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      background-color: var(--color-ferment-accent);
+      color: var(--color-ferment-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      line-height: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--color-ferment-darker);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .copyright {
+      color: var(--color-ferment-gray);
+      font-size: 0.75rem;
+    }
+
+    /* Source */
+    .source {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.875rem;
+      color: var(--color-ferment-gray);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .criteria-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">FERMENT<span>.</span></a>
+      <nav>
+        <a href="/">Accueil</a>
+        <a href="koji-sake.html">Saké</a>
+        <a href="koji-shochu.html">Shochu</a>
+        <a href="koji-miso.html">Miso</a>
+        <a href="koji-sauce-soja.html">Sauce Soja</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="category">Koji</span>
+      <h1>Choisir son Koji pour le Saké et le Mirin</h1>
+      <p class="meta">Guide de sélection des starters de koji</p>
+    </div>
+  </section>
+
+  <article>
+    <p class="intro">
+      La sélection du bon starter de koji est cruciale pour la production de saké et de mirin.
+      Trois critères principaux guident ce choix : l'activité enzymatique, la vitesse de croissance
+      et la coloration finale.
+    </p>
+
+    <h2>Les 3 critères de sélection</h2>
+
+    <div class="criteria-grid">
+      <div class="criteria-card">
+        <span class="criteria-number">1</span>
+        <h4>Activité Enzymatique</h4>
+        <p>
+          L'équilibre entre la Gluco-amylase et l'α-amylase (ratio G/α) est particulièrement
+          important pour le brassage de saké de classe Ginjo. Pour une production orientée
+          vers le rendement, un koji à forte activité enzymatique est recommandé.
+        </p>
+      </div>
+
+      <div class="criteria-card">
+        <span class="criteria-number">2</span>
+        <h4>Vitesse de Croissance</h4>
+        <p>
+          La vitesse de croissance influence la facilité du processus de fabrication du koji.
+          Avec un starter à croissance lente, il faut veiller à ne pas refroidir excessivement
+          les matériaux.
+        </p>
+      </div>
+
+      <div class="criteria-card">
+        <span class="criteria-number">3</span>
+        <h4>Coloration</h4>
+        <p>
+          Les starters avec une activité enzymatique plus forte présentent un risque accru
+          de brunissement du produit final. Un paramètre à considérer pour les sakés clairs.
+        </p>
+      </div>
+    </div>
+
+    <h2>Enzymes du Koji pour le Saké</h2>
+
+    <p>
+      Chaque enzyme produite par le koji joue un rôle spécifique dans la transformation
+      des matières premières en saké.
+    </p>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Enzyme</th>
+            <th>Fonction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>α-amylase</strong></td>
+            <td>Liquéfaction de l'amidon — transforme l'amidon en dextrines</td>
+          </tr>
+          <tr>
+            <td><strong>Gluco-amylase</strong></td>
+            <td>Production de glucose à partir de l'amidon — sucres fermentescibles</td>
+          </tr>
+          <tr>
+            <td><strong>α-glucosidase</strong></td>
+            <td>Dégradation des oligosaccharides ramifiés</td>
+          </tr>
+          <tr>
+            <td><strong>Protéase</strong></td>
+            <td>Protéolyse — production de peptides et acides aminés pour la levure</td>
+          </tr>
+          <tr>
+            <td><strong>Acid Carboxyl Peptidase</strong></td>
+            <td>Production d'acides aminés libres — contribue à l'umami</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Application pratique</h2>
+
+    <h3>Pour le Saké Ginjo (premium)</h3>
+    <p>
+      Privilégier un koji avec un ratio G/α équilibré. La finesse aromatique du Ginjo
+      nécessite une fermentation contrôlée où l'excès de glucose n'est pas souhaitable.
+    </p>
+
+    <h3>Pour le Saké Junmai (pur riz)</h3>
+    <p>
+      Un koji à forte activité enzymatique peut être utilisé pour maximiser l'extraction
+      des sucres et obtenir un rendement optimal.
+    </p>
+
+    <h3>Pour le Mirin</h3>
+    <p>
+      Le mirin étant un condiment sucré, l'activité de la Gluco-amylase est primordiale
+      pour produire suffisamment de glucose résiduel.
+    </p>
+
+    <div class="source">
+      <p>
+        <strong>Source :</strong>
+        <a href="https://www.higuchi-m.co.jp/en/choice/#sake" target="_blank">
+          Higuchi Matsunosuke Shoten — How to Select the Koji Starter
+        </a>
+      </p>
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-nav">
+      <a href="koji-sake.html">Saké</a>
+      <a href="koji-shochu.html">Shochu</a>
+      <a href="koji-miso.html">Miso</a>
+      <a href="koji-sauce-soja.html">Sauce Soja</a>
+    </div>
+    <p class="copyright">
+      &copy; 2024 FERMENT. — Rien ne se perd, tout se fermente.
+    </p>
+  </footer>
+</body>
+</html>

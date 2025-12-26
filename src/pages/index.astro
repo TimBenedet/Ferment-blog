@@ -1,0 +1,159 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const featuredArticles = [
+  {
+    title: "Cultiver son propre Koji",
+    slug: "cultiver-son-propre-koji",
+    excerpt: "Le koji est la base de nombreuses fermentations. Apprenez à le cultiver chez vous avec des méthodes simples.",
+    category: "Koji",
+    date: "2024-12-15",
+  },
+  {
+    title: "Miso maison : 6 mois de patience",
+    slug: "miso-maison-6-mois",
+    excerpt: "Journal de bord d'une fermentation longue. Du soja au miso, une transformation magique.",
+    category: "Miso",
+    date: "2024-12-10",
+  },
+  {
+    title: "Zéro déchet en brasserie",
+    slug: "zero-dechet-brasserie",
+    excerpt: "Comment utiliser les drêches, les levures et chaque sous-produit de la fabrication de bière.",
+    category: "Zéro Déchet",
+    date: "2024-12-05",
+  }
+];
+
+const categories = [
+  { name: "Koji", description: "L'art de cultiver Aspergillus oryzae", color: "accent" },
+  { name: "Miso", description: "Fermentations longues et umami profond", color: "purple" },
+  { name: "Bière", description: "Brassage artisanal et économie circulaire", color: "accent" },
+  { name: "Zéro Déchet", description: "Transformer plutôt que jeter", color: "purple" }
+];
+---
+
+<Layout title="Accueil">
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <!-- Background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[--color-ferment-darker] via-[--color-ferment-dark] to-[--color-ferment-dark]"></div>
+
+    <!-- Animated circles (representing fermentation bubbles) -->
+    <div class="absolute inset-0 overflow-hidden opacity-20">
+      <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-[--color-ferment-accent] blur-3xl animate-glow"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[--color-ferment-purple] blur-3xl animate-glow" style="animation-delay: 1.5s;"></div>
+    </div>
+
+    <div class="relative z-10 w-full flex flex-col items-center text-center px-6">
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-wider mb-6 animate-fade-in">
+        FERMENT<span class="text-[--color-ferment-accent]">.</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-[--color-ferment-gray] font-light max-w-2xl mb-8 animate-fade-in" style="animation-delay: 0.2s;">
+        La fermentation comme philosophie.<br/>
+        Du koji au miso, de la bière au zéro déchet.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 items-center animate-fade-in" style="animation-delay: 0.4s;">
+        <a href="/manifeste" class="px-8 py-4 bg-[--color-ferment-accent] text-[--color-ferment-dark] font-display text-sm uppercase tracking-widest hover:bg-[--color-ferment-cream] transition-colors text-center whitespace-nowrap">
+          Découvrir le manifeste
+        </a>
+        <a href="/journal" class="px-8 py-4 text-[--color-ferment-cream] font-display text-sm uppercase tracking-widest hover:text-[--color-ferment-accent] transition-colors text-center whitespace-nowrap">
+          Lire le journal
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-[--color-ferment-gray]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="py-24 bg-[--color-ferment-darker]">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-sm font-display uppercase tracking-widest text-[--color-ferment-accent] mb-4">
+        Philosophie
+      </h2>
+      <blockquote class="text-2xl md:text-3xl lg:text-4xl font-light text-[--color-ferment-cream] leading-relaxed">
+        "Rien ne se perd, tout se transforme. La fermentation est l'art de
+        <span class="text-[--color-ferment-accent]">donner une nouvelle vie</span>
+        à ce que d'autres considèrent comme des déchets."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-sm font-display uppercase tracking-widest text-[--color-ferment-accent] mb-4">
+          Explorer
+        </h2>
+        <h3 class="text-3xl md:text-4xl font-display font-bold text-[--color-ferment-cream]">
+          Les univers de la fermentation
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {categories.map((cat) => (
+          <a
+            href={`/journal?cat=${cat.name.toLowerCase().replace(' ', '-')}`}
+            class="group relative p-8 bg-[--color-ferment-darker] border border-white/5 hover:border-[--color-ferment-accent]/50 transition-all duration-500"
+          >
+            <div class="absolute top-0 left-0 w-full h-1 bg-[--color-ferment-accent] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+            <h4 class="text-xl font-display font-bold text-[--color-ferment-cream] mb-2 group-hover:text-[--color-ferment-accent] transition-colors">
+              {cat.name}
+            </h4>
+            <p class="text-sm text-[--color-ferment-gray]">
+              {cat.description}
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Articles -->
+  <section class="py-24 bg-[--color-ferment-darker]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+        <div>
+          <h2 class="text-sm font-display uppercase tracking-widest text-[--color-ferment-accent] mb-4">
+            Journal
+          </h2>
+          <h3 class="text-3xl md:text-4xl font-display font-bold text-[--color-ferment-cream]">
+            Articles récents
+          </h3>
+        </div>
+        <a href="/journal" class="text-[--color-ferment-accent] font-display text-sm uppercase tracking-widest hover:text-[--color-ferment-cream] transition-colors">
+          Voir tout &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredArticles.map((article) => (
+          <ArticleCard article={article} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-[--color-ferment-cream] mb-6">
+        Prêt à fermenter ?
+      </h2>
+      <p class="text-[--color-ferment-gray] text-lg mb-8 max-w-2xl mx-auto">
+        Rejoignez une communauté de passionnés qui transforment leur rapport à l'alimentation et aux déchets.
+      </p>
+      <a href="/recettes" class="inline-block px-8 py-4 bg-[--color-ferment-accent] text-[--color-ferment-dark] font-display text-sm uppercase tracking-widest hover:bg-[--color-ferment-cream] transition-colors">
+        Commencer avec une recette
+      </a>
+    </div>
+  </section>
+</Layout>
