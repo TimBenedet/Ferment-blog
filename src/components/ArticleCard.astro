@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { article } = Astro.props;
+const base = import.meta.env.BASE_URL;
 
 const categoryColors: Record<string, string> = {
   'Koji': 'bg-[--color-ferment-accent]',
@@ -52,7 +53,7 @@ const formatDate = (dateStr: string) => {
       {formatDate(article.date)}
     </time>
     <h3 class="mt-2 text-xl font-display font-bold text-[--color-ferment-cream] group-hover:text-[--color-ferment-accent] transition-colors">
-      <a href={`/journal/${article.slug}`} class="block">
+      <a href={`${base}journal/${article.slug}/`} class="block">
         {article.title}
       </a>
     </h3>
@@ -60,7 +61,7 @@ const formatDate = (dateStr: string) => {
       {article.excerpt}
     </p>
     <a
-      href={`/journal/${article.slug}`}
+      href={`${base}journal/${article.slug}/`}
       class="inline-flex items-center gap-2 mt-4 text-sm text-[--color-ferment-accent] font-display uppercase tracking-wider hover:text-[--color-ferment-cream] transition-colors"
     >
       Lire

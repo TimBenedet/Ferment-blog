@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
+const base = import.meta.env.BASE_URL;
+
 const article = {
   title: "Cultiver son propre Koji",
   category: "Koji",
@@ -213,10 +215,10 @@ const article = {
     <!-- Navigation -->
     <footer class="py-12 bg-[--color-ferment-darker] border-t border-white/5">
       <div class="max-w-3xl mx-auto px-6 flex justify-between items-center">
-        <a href="/journal" class="text-[--color-ferment-accent] font-display text-sm uppercase tracking-wider hover:text-[--color-ferment-cream] transition-colors">
+        <a href={`${base}journal/`} class="text-[--color-ferment-accent] font-display text-sm uppercase tracking-wider hover:text-[--color-ferment-cream] transition-colors">
           &larr; Retour au journal
         </a>
-        <a href="/recettes" class="text-[--color-ferment-accent] font-display text-sm uppercase tracking-wider hover:text-[--color-ferment-cream] transition-colors">
+        <a href={`${base}recettes/`} class="text-[--color-ferment-accent] font-display text-sm uppercase tracking-wider hover:text-[--color-ferment-cream] transition-colors">
           Voir les recettes &rarr;
         </a>
       </div>
