@@ -1,51 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
 
-const articles = [
-  {
-    title: "Cultiver son propre Koji",
-    slug: "cultiver-son-propre-koji",
-    excerpt: "Le koji est la base de nombreuses fermentations. Apprenez à le cultiver chez vous avec des méthodes simples et du matériel accessible.",
-    category: "Koji",
-    date: "2024-12-15",
-  },
-  {
-    title: "Miso maison : 6 mois de patience",
-    slug: "miso-maison-6-mois",
-    excerpt: "Journal de bord d'une fermentation longue. Du soja au miso, une transformation magique qui demande patience et observation.",
-    category: "Miso",
-    date: "2024-12-10",
-  },
-  {
-    title: "Zéro déchet en brasserie",
-    slug: "zero-dechet-brasserie",
-    excerpt: "Comment utiliser les drêches, les levures et chaque sous-produit de la fabrication de bière artisanale.",
-    category: "Zéro Déchet",
-    date: "2024-12-05",
-  },
-  {
-    title: "Le shio koji : condiment miracle",
-    slug: "shio-koji-condiment-miracle",
-    excerpt: "Découvrez le shio koji, ce condiment fermenté japonais qui attendrit les viandes et sublime les légumes.",
-    category: "Koji",
-    date: "2024-11-28",
-  },
-  {
-    title: "Brasser sa première bière",
-    slug: "brasser-premiere-biere",
-    excerpt: "Guide complet pour débuter le brassage à domicile. Du malt au verre, toutes les étapes expliquées.",
-    category: "Bière",
-    date: "2024-11-20",
-  },
-  {
-    title: "Valoriser les épluchures",
-    slug: "valoriser-epluchures",
-    excerpt: "Bouillons, vinaigres, pickles : transformez vos épluchures en ingrédients gastronomiques.",
-    category: "Zéro Déchet",
-    date: "2024-11-15",
-  },
-];
+const allArticles = await getCollection('journal');
+
+// Trier par date décroissante
+const articles = allArticles
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .map(article => ({
+    title: article.data.title,
+    slug: article.slug,
+    excerpt: article.data.excerpt,
+    category: article.data.category,
+    date: article.data.date,
+  }));
 
 const categories = ['Tous', 'Koji', 'Miso', 'Bière', 'Zéro Déchet'];
 ---

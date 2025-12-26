@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const recettes = await getCollection('recettes');
+  return recettes.map(recette => ({
+    params: { slug: recette.slug },
+    props: { recette },
+  }));
+}
+
+const { recette } = Astro.props;
+const { Content } = await recette.render();
+const base = import.meta.env.BASE_URL;
+
+const difficultyColors: Record<string, string> = {
+  'Facile': 'text-emerald-400',
+  'Intermédiaire': 'text-amber-400',
+  'Avancé': 'text-red-400',
+};
+---
+
+<Layout title={recette.data.title} description={recette.data.description}>
+  <article>
+    <header class="py-16 lg:py-24 bg-[--color-ferment-darker]">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="px-3 py-1 text-xs font-display uppercase tracking-wider bg-white/10 text-[--color-ferment-gray]">
+            {recette.data.category}
+          </span>
+          <span class={`text-sm ${difficultyColors[recette.data.difficulty]}`}>
+            {recette.data.difficulty}
+          </span>
+          <span class="text-sm text-[--color-ferment-gray]">
+            {recette.data.time}
+          </span>
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-wider text-[--color-ferment-cream] mb-6">
+          {recette.data.title}
+        </h1>
+        <p class="text-xl text-[--color-ferment-gray]">
+          {recette.data.description}
+        </p>
+      </div>
+    </header>
+
+    <div class="py-12 lg:py-16">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="prose prose-lg prose-invert max-w-none prose-headings:font-display prose-headings:text-[--color-ferment-cream] prose-h2:text-[--color-ferment-accent] prose-p:text-[--color-ferment-gray] prose-strong:text-[--color-ferment-cream] prose-a:text-[--color-ferment-accent] prose-li:text-[--color-ferment-gray]">
+          <Content />
+        </div>
+      </div>
+    </div>
+
+    <footer class="py-12 bg-[--color-ferment-darker] border-t border-white/5">
+      <div class="max-w-3xl mx-auto px-6 flex justify-between items-center">
+        <a href={`${base}recettes/`} class="text-[--color-ferment-accent] font-display text-sm uppercase tracking-wider hover:text-[--color-ferment-cream] transition-colors">
+          &larr; Toutes les recettes
+        </a>
+        <a href={`${base}journal/`} class="text-[--color-ferment-accent] font-display text-sm uppercase tracking-wider hover:text-[--color-ferment-cream] transition-colors">
+          Lire le journal &rarr;
+        </a>
+      </div>
+    </footer>
+  </article>
+</Layout>

@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('journal');
+  return articles.map(article => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title={article.data.title} description={article.data.excerpt}>
+  <article>
+    <header class="py-16 lg:py-24 bg-[--color-ferment-darker]">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="px-3 py-1 text-xs font-display uppercase tracking-wider bg-[--color-ferment-accent] text-[--color-ferment-dark]">
+            {article.data.category}
+          </span>
+          {article.data.readTime && (
+            <span class="text-sm text-[--color-ferment-gray]">{article.data.readTime} de lecture</span>
+          )}
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-wider text-[--color-ferment-cream] mb-6">
+          {article.data.title}
+        </h1>
+        <time class="text-[--color-ferment-gray]">
+          {new Date(article.data.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+        </time>
+      </div>
+    </header>
+
+    <div class="py-12 lg:py-16">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="prose prose-lg prose-invert max-w-none prose-headings:font-display prose-headings:text-[--color-ferment-cream] prose-h2:text-[--color-ferment-accent] prose-p:text-[--color-ferment-gray] prose-strong:text-[--color-ferment-cream] prose-a:text-[--color-ferment-accent] prose-blockquote:border-[--color-ferment-accent] prose-blockquote:text-[--color-ferment-cream] prose-li:text-[--color-ferment-gray]">
+          <Content />
+        </div>
+      </div>
+    </div>
+
+    <footer class="py-12 bg-[--color-ferment-darker] border-t border-white/5">
+      <div class="max-w-3xl mx-auto px-6 flex justify-between items-center">
+        <a href={`${base}journal/`} class="text-[--color-ferment-accent] font-display text-sm uppercase tracking-wider hover:text-[--color-ferment-cream] transition-colors">
+          &larr; Retour au journal
+        </a>
+        <a href={`${base}recettes/`} class="text-[--color-ferment-accent] font-display text-sm uppercase tracking-wider hover:text-[--color-ferment-cream] transition-colors">
+          Voir les recettes &rarr;
+        </a>
+      </div>
+    </footer>
+  </article>
+</Layout>

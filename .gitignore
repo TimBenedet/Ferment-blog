@@ -24,5 +24,8 @@ pnpm-debug.log*
 # Claude settings
 .claude/
 
+# Admin local (pas sur GitHub)
+admin/
+
 # jetbrains setting folder
 .idea/

@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "FERMENT.",
+    "subtitle": "La fermentation comme philosophie.\nDu koji au miso, de la bière au zéro déchet."
+  },
+  "philosophy": {
+    "quote": "Rien ne se perd, tout se transforme. La fermentation est l'art de donner une nouvelle vie à ce que d'autres considèrent comme des déchets."
+  },
+  "categories": [
+    {
+      "name": "Koji",
+      "description": "L'art de cultiver Aspergillus oryzae"
+    },
+    {
+      "name": "Miso",
+      "description": "Fermentations longues et umami profond"
+    },
+    {
+      "name": "Bière",
+      "description": "Brassage artisanal et économie circulaire"
+    },
+    {
+      "name": "Zéro Déchet",
+      "description": "Transformer plutôt que jeter"
+    }
+  ],
+  "cta": {
+    "title": "Prêt à fermenter ?",
+    "text": "Rejoignez une communauté de passionnés qui transforment leur rapport à l'alimentation et aux déchets."
+  }
+}
